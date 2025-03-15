@@ -20,7 +20,7 @@ int main() {
 	soln = {56, 28, 14, 2};
 	bool second = (answerSet == soln);
 	assert(first || second);
-
+	
 
 	// Test 2
 	values = {10, 5, 3, 15, 20};
@@ -31,7 +31,27 @@ int main() {
 	set<int> answerSet2(ans.begin(), ans.end());
 	assert(answerSet2 == soln);
 
-	// write your own tests here!
+	// Test 3. Should return an empty ist
+	values = {};
+	ans = biggest_divisible_conglomerate(values);
+	cout << "input: " << vec_to_string(values) << endl;
+	cout << "output: " << vec_to_string(ans) << endl << endl;
+	assert(ans.empty());
+
+	//Test 4; Only one input
+	values = {15};
+	ans = biggest_divisible_conglomerate(values);
+	cout << "input: " << vec_to_string(values) << endl;
+	cout << "output: " << vec_to_string(ans) << endl << endl;
+	assert(ans == values);
+
+	// Test 5 no valid conglomerate
+	values = {7, 11, 17, 3};  
+	ans = biggest_divisible_conglomerate(values);
+	cout << "input: " << vec_to_string(values) << endl;
+	cout << "output: " << vec_to_string(ans) << endl << endl;
+	assert(ans == vector<int>{17} || ans == vector<int>{3});
+
 
 	return 0;
 }
